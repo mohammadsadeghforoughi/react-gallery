@@ -10,6 +10,7 @@
         "@types/node": "^16.7.13",
         "@types/react": "^18.0.0",
         "@types/react-dom": "^18.0.0",
+        "axios": "^0.27.2",
         "react": "^18.1.0",
         "react-dom": "^18.1.0",
         "react-scripts": "5.0.1",
@@ -48,15 +49,15 @@
         "sass": "^1.52.1",
         "stylelint": "^14.8.3",
         "stylelint-config-standard": "^25.0.0"
-    }, 
+    },
     "husky": {
         "hooks": {
-          "pre-commit": "lint-staged"
+            "pre-commit": "lint-staged"
         }
-      },
-      "lint-staged": {
+    },
+    "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-          "prettier --write"
+            "prettier --write"
         ]
-      }
+    }
 }
