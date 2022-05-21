@@ -13,7 +13,7 @@ interface IImagesList {
 }
 
 const _FetchImagesList = async (): Promise<IImagesList[]> => {
-    let images = await instance.get('/')
+    let images = await instance.get('')
     return images.data
 }
 
