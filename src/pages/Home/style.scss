@@ -4,12 +4,11 @@
     .items {
         width: 25%;
         height: 25vw;
-        transition: all 0.3s;
+        transition: all 0.3s ease-in-out;
     }
     .items:hover {
         transform: scale(1.03);
         z-index: 2;
-        border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.328) 0 0 1000px;
         cursor: pointer;
     }
