@@ -20,23 +20,53 @@ const initiatedState = {
 const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
     const [currentImage, setCurrentImage] =
         useState<IImagesList>(initiatedState)
+    const [imageID, setImageID] = useState<number>(props.selectedImage)
+
+    useEffect(() => {
+        setImageID(props.selectedImage)
+    }, [props.selectedImage])
 
     useEffect(() => {
         setCurrentImage(
-            props.ImageList.find((i) => i.id == props.selectedImage) ||
-                initiatedState
+            props.ImageList.find((i) => i.id == imageID) || initiatedState
         )
-    }, [props.selectedImage])
+    }, [imageID])
+
+    const handleCloseModal = () => {
+        props.closeModal()
+    }
+
+    const handleNextImage = () => {
+        let currentImageIndex = props.ImageList.findIndex(
+            (i) => i.id == imageID
+        )
+        if (currentImageIndex + 1 != props.ImageList.length) {
+            let nextImage = props.ImageList[currentImageIndex + 1]
+            setImageID(nextImage.id)
+        }
+    }
+
+    const handlePrevImage = () => {
+        let currentImageIndex = props.ImageList.findIndex(
+            (i) => i.id == imageID
+        )
+        if (currentImageIndex != 0) {
+            let prevImage = props.ImageList[currentImageIndex - 1]
+            setImageID(prevImage.id)
+        }
+    }
     return (
         <React.Fragment>
-            <div className={`modal-container ${props.isOpen && 'modal-show'}`}>
+            <div
+                className={`modal-container ${
+                    props.isOpen ? 'modal-show' : ''
+                }`}
+            >
                 <div className="modal-body">
                     <div className="modal-overlay">
                         <div
                             className="exit-modal-button"
-                            onClick={() => {
-                                props.closeModal()
-                            }}
+                            onClick={handleCloseModal}
                         >
                             <img src={ExitSvg} />
                         </div>
@@ -48,8 +78,12 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
                             <div>{currentImage.description}</div>
                         </div>
                         <div className="controller-modal-button">
-                            <img src={ArrowLeft} />
-                            <img className="right-arrow" src={ArrowLeft} />
+                            <img onClick={handlePrevImage} src={ArrowLeft} />
+                            <img
+                                onClick={handleNextImage}
+                                className="right-arrow"
+                                src={ArrowLeft}
+                            />
                         </div>
                     </div>
                     <img src={currentImage.image} />
