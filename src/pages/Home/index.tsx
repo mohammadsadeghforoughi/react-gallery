@@ -3,10 +3,12 @@ import PhotoBox from '../../components/PhotoBox'
 import PhotoModalSlider from '../../components/PhotoModalSlider'
 import { IImagesList, _FetchImagesList } from '../../services'
 import './style.scss'
+
 function Home() {
     const [ImageList, setImageList] = useState<Array<IImagesList>>([])
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
     const [selectedImageID, setSelectedImageID] = useState<number>(0)
+
     useEffect(() => {
         _FetchImagesList().then((res) => {
             setImageList(res)

@@ -21,6 +21,7 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
     const [currentImage, setCurrentImage] =
         useState<IImagesList>(initiatedState)
     const [imageID, setImageID] = useState<number>(props.selectedImage)
+    const [showControllers, setShowControllers] = useState<boolean>(true)
 
     useEffect(() => {
         setImageID(props.selectedImage)
@@ -55,6 +56,9 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
             setImageID(prevImage.id)
         }
     }
+    const handleShowControllers = (isHover: boolean) => {
+        setShowControllers(isHover)
+    }
     return (
         <React.Fragment>
             <div
@@ -63,13 +67,17 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
                 }`}
             >
                 <div
+                    onMouseOver={() => handleShowControllers(true)}
+                    onMouseOut={() => handleShowControllers(false)}
                     className={`modal-body ${
                         props.isOpen ? 'modal-body-show' : ''
                     }`}
                 >
                     <div className="modal-overlay">
                         <div
-                            className="exit-modal-button"
+                            className={`exit-modal-button ${
+                                showControllers ? 'show-controllers' : ''
+                            } `}
                             onClick={handleCloseModal}
                         >
                             <img src={ExitSvg} />
@@ -81,7 +89,11 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
                             </div>
                             <div>{currentImage.description}</div>
                         </div>
-                        <div className="controller-modal-button">
+                        <div
+                            className={`controller-modal-button ${
+                                showControllers ? 'show-controllers' : ''
+                            }`}
+                        >
                             <img onClick={handlePrevImage} src={ArrowLeft} />
                             <img
                                 onClick={handleNextImage}
