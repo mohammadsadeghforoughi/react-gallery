@@ -12,6 +12,18 @@ function Home() {
             setImageList(res)
         })
     }, [])
+
+    React.useEffect(() => {
+        const timer = setInterval(
+            () =>
+                _FetchImagesList().then((res) => {
+                    setImageList(res)
+                }),
+            60 * 1000 * 1 // every one minute
+        )
+        return () => clearInterval(timer)
+    })
+
     return (
         <React.Fragment>
             <div className="container">
