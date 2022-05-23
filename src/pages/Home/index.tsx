@@ -8,6 +8,7 @@ function Home() {
     const [ImageList, setImageList] = useState<Array<IImagesList>>([])
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
     const [selectedImageID, setSelectedImageID] = useState<number>(0)
+
     const handleFetchData = () => {
         _FetchImagesList().then((res) => {
             setImageList(res)
