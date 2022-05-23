@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useState } from 'react'
 import ExitSvg from '../../assets/exit.svg'
-import ArrowLeft from '../../assets/arrow-left.svg'
+import Arrow from '../../assets/arrow.svg'
 import './style.scss'
 import { IImagesList } from '../../services'
 
 interface IPhotoModalSlider {
     isOpen: boolean
     closeModal: () => void
-    selectedImage: any
+    selectedImageID: any
     ImageList: IImagesList[]
 }
 
@@ -20,12 +20,12 @@ const initiatedState = {
 const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
     const [currentImage, setCurrentImage] =
         useState<IImagesList>(initiatedState)
-    const [imageID, setImageID] = useState<number>(props.selectedImage)
+    const [imageID, setImageID] = useState<number>(props.selectedImageID)
     const [showControllers, setShowControllers] = useState<boolean>(true)
 
     useEffect(() => {
-        setImageID(props.selectedImage)
-    }, [props.selectedImage])
+        setImageID(props.selectedImageID)
+    }, [props.selectedImageID])
 
     useEffect(() => {
         setCurrentImage(
@@ -97,12 +97,12 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
                             <img
                                 className="simple-transition"
                                 onClick={handlePrevImage}
-                                src={ArrowLeft}
+                                src={Arrow}
                             />
                             <img
                                 onClick={handleNextImage}
                                 className="right-arrow simple-transition"
-                                src={ArrowLeft}
+                                src={Arrow}
                             />
                         </div>
                     </div>

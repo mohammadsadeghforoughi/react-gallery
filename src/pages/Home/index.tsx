@@ -8,19 +8,18 @@ function Home() {
     const [ImageList, setImageList] = useState<Array<IImagesList>>([])
     const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
     const [selectedImageID, setSelectedImageID] = useState<number>(0)
-
-    useEffect(() => {
+    const handleFetchData = () => {
         _FetchImagesList().then((res) => {
             setImageList(res)
         })
-    }, [])
+    }
+
+    useEffect(() => handleFetchData, []) // get data for first
 
     React.useEffect(() => {
+        // get data in interval for changes
         const timer = setInterval(
-            () =>
-                _FetchImagesList().then((res) => {
-                    setImageList(res)
-                }),
+            () => handleFetchData,
             60 * 1000 * 1 // every one minute
         )
         return () => clearInterval(timer)
@@ -29,23 +28,24 @@ function Home() {
     return (
         <React.Fragment>
             <div className="container">
-                {ImageList.map((i) => {
+                {ImageList.map((image, index) => {
                     return (
                         <div
+                            key={`items-${index}`}
                             className="items"
                             onClick={() => {
                                 setModalIsOpen(true)
-                                setSelectedImageID(i.id)
+                                setSelectedImageID(image.id)
                             }}
                         >
-                            <PhotoBox data={i} />
+                            <PhotoBox key={`PhotoBox-${index}`} data={image} />
                         </div>
                     )
                 })}
             </div>
             <PhotoModalSlider
                 ImageList={ImageList}
-                selectedImage={selectedImageID}
+                selectedImageID={selectedImageID}
                 isOpen={modalIsOpen}
                 closeModal={() => {
                     setModalIsOpen(false)
