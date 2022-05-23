@@ -8,46 +8,42 @@
     top: 0;
     left: 0;
     display: none;
-    transition: all 0.3s;
-}
-.modal-show {
-    display: flex;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.5);
-    -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s;
-}
 
-.modal-body-show {
-    -webkit-animation-name: zoomIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: zoomIn;
-    animation-duration: 0.4s;
+    &-show {
+        display: flex;
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-animation-name: fadeIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: fadeIn;
+        animation-duration: 0.4s;
+    }
 }
 
 .modal-body {
     position: relative;
     max-width: 90vw;
     transition: all 1s;
-    img {
-        height: 100%;
-        width: 100%;
-    }
-    .modal-overlay {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 10px;
+
+    &-show {
+        -webkit-animation-name: zoomIn;
+        -webkit-animation-duration: 0.4s;
+        animation-name: zoomIn;
+        animation-duration: 0.4s;
     }
 }
 
+.modal-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
 .exit-modal-button {
-    transition: all 0.3s;
     width: 25px;
     height: 25px;
     align-self: flex-end;
@@ -56,18 +52,14 @@
     opacity: 0;
 
     img {
-        height: 100%;
-        width: 100%;
         filter: invert(0.5);
-        transition: all 0.3s;
-    }
-    img:hover {
-        filter: invert(0.7);
+        &:hover {
+            filter: invert(0.7);
+        }
     }
 }
 
 .controller-modal-button {
-    transition: all 0.3s;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -82,11 +74,11 @@
         height: 50px;
         width: 50px;
         filter: invert(0.5);
-        transition: all 0.3s;
+        &:hover {
+            filter: invert(0.7);
+        }
     }
-    img:hover {
-        filter: invert(0.7);
-    }
+
     .right-arrow {
         transform: rotate(180deg);
     }

@@ -62,8 +62,8 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
     return (
         <React.Fragment>
             <div
-                className={`modal-container ${
-                    props.isOpen ? 'modal-show' : ''
+                className={`modal-container simple-transition ${
+                    props.isOpen ? 'modal-container-show' : ''
                 }`}
             >
                 <div
@@ -75,12 +75,12 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
                 >
                     <div className="modal-overlay">
                         <div
-                            className={`exit-modal-button ${
+                            className={`exit-modal-button simple-transition ${
                                 showControllers ? 'show-controllers' : ''
                             } `}
                             onClick={handleCloseModal}
                         >
-                            <img src={ExitSvg} />
+                            <img className="simple-transition" src={ExitSvg} />
                         </div>
 
                         <div className="modal-text">
@@ -90,14 +90,18 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
                             <div>{currentImage.description}</div>
                         </div>
                         <div
-                            className={`controller-modal-button ${
+                            className={`controller-modal-button simple-transition ${
                                 showControllers ? 'show-controllers' : ''
                             }`}
                         >
-                            <img onClick={handlePrevImage} src={ArrowLeft} />
+                            <img
+                                className="simple-transition"
+                                onClick={handlePrevImage}
+                                src={ArrowLeft}
+                            />
                             <img
                                 onClick={handleNextImage}
-                                className="right-arrow"
+                                className="right-arrow simple-transition"
                                 src={ArrowLeft}
                             />
                         </div>
