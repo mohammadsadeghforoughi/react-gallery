@@ -4,8 +4,6 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
     z-index: 2;
     top: 0;
     left: 0;
@@ -14,10 +12,22 @@
 }
 .modal-show {
     display: flex;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+
+.modal-body-show {
+    -webkit-animation-name: zoomIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: zoomIn;
+    animation-duration: 0.4s;
 }
 
 .modal-body {
-    box-shadow: rgba(0, 0, 0, 0.411) 0px 0px 15px;
     position: relative;
     max-width: 90vw;
     transition: all 1s;
@@ -76,5 +86,46 @@
         color: #fff;
         font-size: 1.7rem;
         margin-bottom: 1.5rem;
+    }
+}
+
+@-webkit-keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+        backdrop-filter: blur(5px);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        backdrop-filter: blur(5px);
+        background-color: rgba(0, 0, 0, 0.5);
     }
 }

@@ -62,7 +62,11 @@ const PhotoModalSlider: FC<IPhotoModalSlider> = (props) => {
                     props.isOpen ? 'modal-show' : ''
                 }`}
             >
-                <div className="modal-body">
+                <div
+                    className={`modal-body ${
+                        props.isOpen ? 'modal-body-show' : ''
+                    }`}
+                >
                     <div className="modal-overlay">
                         <div
                             className="exit-modal-button"

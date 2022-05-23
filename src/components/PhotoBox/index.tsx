@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
+import { IImagesList } from '../../services'
 import './style.scss'
 
 interface IPhotoBox {
-    data: {
-        image: string
-    }
+    data: IImagesList
 }
 
 const PhotoBox: FC<IPhotoBox> = (props) => {
@@ -14,7 +13,7 @@ const PhotoBox: FC<IPhotoBox> = (props) => {
                 className="box"
                 style={{ backgroundImage: `url(${props.data.image})` }}
             >
-                test
+                {props.data.title}
             </div>
         </React.Fragment>
     )
