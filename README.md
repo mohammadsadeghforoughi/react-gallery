@@ -34,13 +34,13 @@ You can run project with Docker. Run these commands to run the project.
 
 
 ### Using React Scripts
-To run project with `react-scripts`, run these lines blow:  
+To run project with `react-scripts`, run these lines blow:    
 1- Clone repository   
- `git clone https://github.com/mohammadsadeghforoughi/react-gallery.git`  
+ `git clone https://github.com/mohammadsadeghforoughi/react-gallery.git`   
 2- Install dependencies  
  `yarn`  
 3- Start Tests    
- `yarn test`
+ `yarn test`  
 4- Start the project   
- `yarn start` 
+ `yarn start`   
 5- Open your browser and enter [http://localhost:3000](http://localhost:3000)
