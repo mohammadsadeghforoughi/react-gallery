@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react'
 import ExitSvg from '../../assets/exit.svg'
 import Arrow from '../../assets/arrow.svg'
 import './style.scss'
-import { IImagesList } from '../../services'
+import { IImagesList } from '../../types'
 
 interface IPhotoModalSlider {
     isOpen: boolean

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { IImagesList } from '../../services'
+import { IImagesList } from '../../types'
 import './style.scss'
 
 interface IPhotoBox {

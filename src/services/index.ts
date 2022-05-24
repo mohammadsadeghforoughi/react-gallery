@@ -1,16 +1,10 @@
 import axios from 'axios'
+import { IImagesList } from '../types'
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
 const instance = axios.create({
     baseURL: BASE_URL,
 })
-
-interface IImagesList {
-    id: number
-    title: string
-    description: string
-    image: string
-}
 
 const _FetchImagesList = async (): Promise<IImagesList[]> => {
     let images = await instance.get('')
@@ -18,4 +12,3 @@ const _FetchImagesList = async (): Promise<IImagesList[]> => {
 }
 
 export { _FetchImagesList }
-export type { IImagesList }

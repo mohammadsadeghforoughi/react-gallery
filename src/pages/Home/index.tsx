@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import PhotoBox from '../../components/PhotoBox'
 import PhotoModalSlider from '../../components/PhotoModalSlider'
-import { IImagesList, _FetchImagesList } from '../../services'
+import { _FetchImagesList } from '../../services'
+import { IImagesList } from '../../types'
 import './style.scss'
 
 function Home() {
