@@ -16,7 +16,7 @@ function Home() {
         })
     }
 
-    useEffect(() => handleFetchData, []) // get data for first
+    useEffect(() => handleFetchData(), []) // get data for first time
 
     React.useEffect(() => {
         // get data in interval for changes

@@ -16,7 +16,11 @@ RUN yarn install --frozen-lockfile
 
 COPY . .
 
+RUN yarn test
+
 RUN yarn build
+
+
 
 FROM nginx:alpine
 
@@ -31,3 +35,4 @@ COPY nginx.conf /etc/nginx
 COPY --from=builder /app-temp/build .
 
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ 
