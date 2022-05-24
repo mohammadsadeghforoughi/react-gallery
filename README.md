@@ -1,7 +1,7 @@
 # React gallery using React, SASS, and TypeScript with Unit test
 Simple React Gallery -  [Live demo](https://mohammadsadeghforoughi.github.io/react-gallery/) 
 
-## Note: Disable CORS on your browser to load data from `https://apimocha.com/bearbulltraders/api`, because it will drop http requests.   
+### Note: Disable CORS on your browser to load data from `https://apimocha.com/bearbulltraders/api`, because it will drop http requests.   
 
 ## Project Stack
 - React.js
