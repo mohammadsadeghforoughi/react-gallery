@@ -39,8 +39,8 @@ To run project with `react-scripts`, run these lines blow:
  `git clone https://github.com/mohammadsadeghforoughi/react-gallery.git`  
 2- Install dependencies  
  `yarn`  
-3- Start Tests  
+3- Start Tests    
  `yarn test`
-4- Start the project  
+4- Start the project   
  `yarn start` 
 5- Open your browser and enter [http://localhost:3000](http://localhost:3000)
