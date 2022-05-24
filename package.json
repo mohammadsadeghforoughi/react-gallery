@@ -1,7 +1,8 @@
 {
-    "name": "my-app",
+    "name": "react-gallery",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://mohammadsadeghforoughi.github.io/react-gallery",
     "dependencies": {
         "@types/node": "^16.7.13",
         "@types/react": "^18.0.0",
@@ -18,7 +19,9 @@
         "build": "react-scripts build",
         "test": "jest",
         "test:watch": "jest --watch",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
@@ -42,6 +45,7 @@
         "@testing-library/jest-dom": "^5.16.4",
         "@testing-library/react": "^13.2.0",
         "@types/jest": "^26",
+        "gh-pages": "^4.0.0",
         "husky": "4",
         "jest": "^26",
         "lint-staged": "^12.4.1",

@@ -8,7 +8,7 @@ Simple React Gallery -  [Live demo](https://mohammadsadeghforoughi.github.io/rea
 - TypeScript
 - Axios
 - Jest
-
+- Prettier 
 
 ----------
 ## Run instruction
